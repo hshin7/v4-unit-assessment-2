@@ -320,26 +320,17 @@ let person = {
     number: 7,
     book: 'Harry Potter',
   },
-  // kids: [
-  //   kid1: {
-  //     name: 'Sam',
-  //     age: 7,
-  //   }, 
-  //   kid2: {
-  //     name: 'Jinny',
-  //     age: 5,
-  //   }
-  // ]
-
-  
+  kids: [
+    {
+      name: 'Sam',
+      age: 5
+    },
+    {
+      name: 'Jinny',
+      age: 7
+    }
+  ] 
 }
-
-
-
-
-
-
-
 
 
 //////////////////////////////////PROBLEMS 13-14//////////////////////////////////
