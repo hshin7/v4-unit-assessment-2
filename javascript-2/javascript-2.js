@@ -35,7 +35,14 @@ let foods = [
   and then adding the results together. 
 */
 
-//CODE HERE
+
+
+foods.forEach(function (element, index, array){
+  let calories = (foods.carbs * 4) + (foods.protein * 4) + (foods.fat * 9)
+  calories
+})
+
+foods.push
 
 //////////////////////////////////PROBLEMS 2-4//////////////////////////////////
 /*
@@ -80,7 +87,32 @@ const products = [
   Save the copy to a new variable called 'saleProducts'.
 */
 
-//CODE HERE
+//new element would be what on the element line / return line 
+
+const saleProducts = products.map((element) => {
+  const newObj = {
+    name: element.name,
+    color: element.color,
+    price: element.price * 0.75
+  }
+  return newObj
+})
+
+
+console.log(saleProducts)
+
+//or
+//({}) = implicit return / brackets for arrow function for the object, NOT for function return
+
+
+// let saleProducts = products.map((element) => ({
+//   ...element, (copied whole element array)
+//   price: element.price * 0.75 (but overwrite price)
+// })) 
+
+// console.log(saleProducts)
+
+
 
 ////////////////////PROBLEM 3////////////////////
 /*
@@ -90,7 +122,30 @@ const products = [
   (Hint: look up the array method 'includes' on MDN)
 */
 
-//CODE HERE
+//filter uses callback
+//filtering over the new array of the 25% off
+//return line is a boolean -> either true or false 
+
+let blueProducts = saleProducts.filter((element) => {
+  return element.color.includes('blue')
+})
+
+console.log(blueProducts)
+
+
+//forloop way 
+//if return is used, it stops the array function 
+
+// const blueProducts = saleProducts.filter((element) =>{
+//   for (let i = 0; i < element.color; i++){
+//     if (element.color[i] === 'blue'){
+//       return true 
+//     }
+//   } 
+//   return false
+// })
+
+// console.log(blueProducts)
 
 ////////////////////PROBLEM 4////////////////////
 /*
@@ -99,7 +154,8 @@ const products = [
   Save the result to a variable called orderTotal.
 */
 
-//CODE HERE
+ let orderTotal = products.reduce
+
 
 //////////////////////////////////PROBLEMS 5-8//////////////////////////////////
 /*
@@ -129,7 +185,7 @@ const shippingInfo = {
   that combines the contactInfo and shippingInfo objects.
 */
 
-//CODE HERE
+let helensInfo = Object.assign(contactInfo, shippingInfo)
 
 ////////////////////PROBLEM 6////////////////////
 /*
@@ -138,14 +194,15 @@ const shippingInfo = {
   Overwrite the name property to 'Ellen' and the email address to 'ellen@email.com'.
 */
 
-//CODE HERE
+let ellensInfo = {...helensInfo, name: 'Ellen', email: 'ellen@email.com'}
 
 ////////////////////PROBLEM 7////////////////////
 /* 
   Save Ellen's email to a new variable using destructuring.
 */
 
-//CODE HERE
+const {email} = ellensInfo
+
 
 ////////////////////PROBLEM 8////////////////////
 /*
@@ -153,7 +210,8 @@ const shippingInfo = {
   from shippingInfo to new variables using destructuring.
 */
 
-//CODE HERE
+// const {zipcode} = shippingInfo
+
 
 //////////////////////////////////PROBLEMS 9-11//////////////////////////////////
 /*
@@ -215,7 +273,7 @@ const userInfo = {
   using dot notation.
 */
 
-//CODE HERE
+const shouldAlert = userInfo.settings;
 
 ////////////////////PROBLEM 10////////////////////
 /*
@@ -223,7 +281,7 @@ const userInfo = {
   using dot and/or bracket notation.
 */
 
-//CODE HERE
+// let topic = usersInfo.topics['tech'];
 
 ////////////////////PROBLEM 11////////////////////
 /*
@@ -231,7 +289,7 @@ const userInfo = {
   gn@rly_c0der_007's 2nd comment using dot/bracket notation.
 */
 
-//CODE HERE
+let commenterId = userInfo.comments[1].responses[0].userId
 
 ////////////////////PROBLEM 12////////////////////
 /*
@@ -250,7 +308,39 @@ const userInfo = {
       - create at least 2 kid objects
 */
 
-//CODE HERE
+let person = {
+  name: 'Jim',
+  age: 50,
+  job: ['cashier', 'barista', 'life guard'],
+  birthday: function(){
+    return this.age + 1
+  },
+  favorites: {
+    color: 'blue',
+    number: 7,
+    book: 'Harry Potter',
+  },
+  // kids: [
+  //   kid1: {
+  //     name: 'Sam',
+  //     age: 7,
+  //   }, 
+  //   kid2: {
+  //     name: 'Jinny',
+  //     age: 5,
+  //   }
+  // ]
+
+  
+}
+
+
+
+
+
+
+
+
 
 //////////////////////////////////PROBLEMS 13-14//////////////////////////////////
 /*
@@ -273,10 +363,10 @@ const workout = {
   },
 }
 
-//let context1 = myFunc
-//let context1 = window
-//let context1 = global
-// let context1 = workout
+// let context1 = myFunc
+// let context1 = window
+// let context1 = global
+let context1 = workout
 
 ////////////////////PROBLEM 14////////////////////
 /*
@@ -288,7 +378,7 @@ function myFunc() {
   return this
 }
 
-//let context2 = myFunc
-// let context2 = window
+// let context2 = myFunc
+let context2 = window
 //let context2 = global
 //let context2 = workout
